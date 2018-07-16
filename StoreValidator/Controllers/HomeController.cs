@@ -10,15 +10,56 @@ namespace StoreValidator.Controllers
     {
         private IStoreData _storeData;
 
+        public HomeController(IStoreData storeData)
+        {
+            _storeData = storeData;
+
+        }
+
+
         public IActionResult Index()
         {
 
             //Instantiate a new instance of store from the HomeView model
             var model = new HomeIndexViewModel();
+                            
 
-            model.Store = _storeData.GetAll();
+            model.Stores = _storeData.GetAll();
 
             return View(model);
+        }
+
+
+        public IActionResult Details(int id){
+            var model = _storeData.Get(id);
+            if (model == null){
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public IActionResult Create(StoreEditModel model){
+            if(ModelState.IsValid){
+                var newStore = new Store();
+
+                newStore.Name = model.Name;
+                newStore.Address = model.Address;
+                newStore.Desc = model.Desc;
+                newStore.PostCode = model.PostCode;
+                newStore.StoreSize = model.StoreSize;
+                newStore.StoreType = model.StoreType;
+                newStore.OpenDate = model.OpenDate;
+
+                newStore = _storeData.Add(newStore);
+
+                return RedirectToAction(nameof(Details), new { id = newStore.Id });
+            }else{
+                return View();
+            }
+
         }
 
         public IActionResult Error()

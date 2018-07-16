@@ -1,1 +1,18 @@
-﻿
+﻿@model HomeIndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1>@Model</h1>
+
+@foreach (var store in Model.Stores)
+{
+    @Html.Partial("_StoreListSummary", store)
+
+}
+
+<div>
+<a asp-action="Create">Add Store</a>
+</div>
+
