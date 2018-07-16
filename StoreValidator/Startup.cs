@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -39,12 +41,23 @@ namespace StoreValidator
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
+            app.UseMvc(RouteConfig);
+
+            app.Run(async (context) =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                context.Response.ContentType = "text/plain";
+                await context.Response.WriteAsync($"Page not Found");
+
+
             });
         }
-    }
+
+            //Create custom routing
+            private void RouteConfig(IRouteBuilder routeBuilder)
+            {
+                    routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            }
+        }
+    
 }

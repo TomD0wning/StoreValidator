@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using StoreValidator.Models;
+using StoreValidator.Services;
+using StoreValidator.ViewModels;
 
 namespace StoreValidator.Controllers
 {
     public class HomeController : Controller
     {
+        private IStoreData _storeData;
+
         public IActionResult Index()
         {
-            return View();
+
+            //Instantiate a new instance of store from the HomeView model
+            var model = new HomeIndexViewModel();
+
+            model.Store = _storeData.GetAll();
+
+            return View(model);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
 
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
 
         public IActionResult Error()
         {
