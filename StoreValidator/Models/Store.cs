@@ -24,12 +24,13 @@ namespace StoreValidator.Models
 
         [DataType(DataType.Text)]
         public StoreType StoreType { get; set; }
-
         
         public long StoreSize { get; set; }
 
         [DataType(DataType.Date)]
         public string OpenDate { get; set; }
+
+        //Add in concessions(boolean) & departments (List)
 
 
     }

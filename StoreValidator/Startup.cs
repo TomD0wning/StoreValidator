@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StoreValidator.Data;
 using StoreValidator.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace StoreValidator
 {
@@ -27,8 +29,10 @@ namespace StoreValidator
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //add in DB context 
-            services.AddScoped<IStoreData, InMemStore>();
+            services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationLocal")));
+            //services.AddSingleton<IStoreData, InMemStore>(); //For using in mem data **DEV ONLY**
+            services.AddScoped<IStoreData, SqlStoreData>();
+
             services.AddMvc();
         }
 

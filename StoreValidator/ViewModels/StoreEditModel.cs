@@ -6,7 +6,7 @@ namespace StoreValidator.ViewModels
 {
     public class StoreEditModel
     {
-            
+        
         [Display(Name = "Store Name")]
         [DataType(DataType.Text)]
         [Required, MaxLength(80)]

@@ -16,7 +16,6 @@ namespace StoreValidator.Controllers
 
         }
 
-
         public IActionResult Index()
         {
 
@@ -29,13 +28,18 @@ namespace StoreValidator.Controllers
             return View(model);
         }
 
-
         public IActionResult Details(int id){
             var model = _storeData.Get(id);
             if (model == null){
                 return RedirectToAction("Index");
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
         }
 
 

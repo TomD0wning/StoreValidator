@@ -1,0 +1,18 @@
+﻿@model Store
+
+
+@{
+    <h1>@Model</h1>
+    ViewBag.Title = @Model.Name;
+
+
+    <div>@Model.Desc</div>
+    <div>@Model.Address</div>
+    <div>@Model.PostCode</div>
+    <div>@Model.StoreSize</div>
+    <div>@Model.StoreType</div>
+    <div>@Model.OpenDate</div>
+
+    <a asp-action="Index" asp-controller="Home">Home</a>
+
+}

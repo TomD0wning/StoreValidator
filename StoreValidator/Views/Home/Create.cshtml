@@ -1,19 +1,44 @@
-﻿@page
+﻿@model Store
 
-@model
 @{
     ViewBag.Title = "Create";
 
-}
+
+<h1>@Model</h1>
 
 <form method="post">
 
-    @*<input type="text" name="Name" value="" />*@
     <div>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
     </div>
     <span asp-validation-for="Name"></span>
+
+    <div>
+        <label asp-for="Desc"></label>
+        <input asp-for="Desc" />
+    </div>
+
+    <div>
+        <label asp-for="Address"></label>
+        <input asp-for="Address" />
+    </div>
+
+    <div>
+        <label asp-for="PostCode"></label>
+        <input asp-for="PostCode" />
+    </div>
+
+    <div>
+        <label asp-for="StoreSize"></label>
+        <input asp-for="StoreSize" />
+    </div>
+
+    <div>
+        <label asp-for="OpenDate"></label>
+        <input asp-for="OpenDate" />
+    </div>
+
 
     <div>
         <label asp-for="StoreType"></label>
@@ -23,7 +48,8 @@
 
     <input type="submit" name="save" value="Save" />
 
-    <h4>@Html.ActionLink("Back", "Index")</h4>
-
+    <a asp-action="Index" asp-controller="Home">Back</a>
 
 </form> 
+
+    }
