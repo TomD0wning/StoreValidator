@@ -1,0 +1,51 @@
+﻿@page "{id}"
+@using StoreValidator.Pages.Stores
+@model EditModel
+
+<h1>Edit @Model.Store.Name</h1>
+    <form method="post">
+
+        <input type="hidden" asp-for="Store.Id"/>
+        <div>
+            <label asp-for="Store.Name"></label>
+            <input asp-for="Store.Name" />
+        </div>
+        <span asp-validation-for="Store.Name"></span>
+        <div>
+            <label asp-for="Store.Address"></label>
+            <input asp-for="Store.Address" />
+        </div>
+        <div>
+            <label asp-for="Store.PostCode"></label>
+            <input asp-for="Store.PostCode" />
+        </div>
+        <div>
+            <label asp-for="Store.StoreSize"></label>
+            <input asp-for="Store.StoreSize" />
+        </div>
+        <div>
+            <label asp-for="Store.OpenDate"></label>
+            <input asp-for="Store.OpenDate" />
+        </div>
+        <div>
+            <label asp-for="Store.Concessions"></label>
+            <input asp-for="Store.Concessions" />
+        </div>
+        <div>
+            <label asp-for="Store.StoreType"></label>
+            <select asp-for="Store.StoreType" asp-items="@Html.GetEnumSelectList(typeof(StoreType))"></select>
+            <span asp-validation-for="Store.StoreType"></span>
+        </div>
+        <div>
+            <label asp-for="Store.Department"></label>
+            <select asp-for="Store.Department" asp-items="@Html.GetEnumSelectList(typeof(Departments))"></select>
+            <span asp-validation-for="Store.Department"></span>
+        </div>
+        
+
+        <input type="submit" name="save" value="Save" />
+
+        <h4>@Html.ActionLink("Back", "Index")</h4>
+
+
+    </form>

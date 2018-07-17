@@ -56,6 +56,8 @@ namespace StoreValidator.Controllers
                 newStore.StoreSize = model.StoreSize;
                 newStore.StoreType = model.StoreType;
                 newStore.OpenDate = model.OpenDate;
+                newStore.Concessions = model.Concessions;
+                newStore.Department = model.Department;
 
                 newStore = _storeData.Add(newStore);
 

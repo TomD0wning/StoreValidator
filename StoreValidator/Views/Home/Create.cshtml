@@ -38,9 +38,19 @@
         <label asp-for="OpenDate"></label>
         <input asp-for="OpenDate" />
     </div>
-
+        <div>
+        <label asp-for="Concessions"></label>
+        <select asp-for="Concessions"></select>
+        <span asp-validation-for="Concessions"></span>
+    </div>
 
     <div>
+        <label asp-for="Department"></label>
+        <select asp-for="Department" asp-items="@Html.GetEnumSelectList(typeof(Departments))"></select>
+        <span asp-validation-for="Department"></span>
+    </div>
+
+        <div>
         <label asp-for="StoreType"></label>
         <select asp-for="StoreType" asp-items="@Html.GetEnumSelectList(typeof(StoreType))"></select>
         <span asp-validation-for="StoreType"></span>

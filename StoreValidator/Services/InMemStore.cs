@@ -32,7 +32,7 @@ namespace StoreValidator.Services
 
         public Store Get(int id)
         {
-            return _store.FirstOrDefault(r => r.Id == id);
+            return _store.FirstOrDefault(s => s.Id == id);
         }
 
         public IEnumerable<Store> GetAll()
@@ -43,14 +43,33 @@ namespace StoreValidator.Services
         public Store Remove(Store store)
         {
             int StoreId = store.Id;
-             _store.RemoveAt(StoreId);
+            _store.RemoveAt(StoreId);
             //TODO - needs to changed to return a success or failure
             return store;
         }
 
         public Store Update(Store store)
         {
-            throw new NotImplementedException();
+
+            var tempStore = _store.FirstOrDefault(s => s.Id == store.Id);
+
+            if (tempStore != null)
+            {
+                tempStore.Name = store.Name;
+                tempStore.Address = store.Address;
+                tempStore.Desc = store.Desc;
+                tempStore.PostCode = store.PostCode;
+                tempStore.OpenDate = store.OpenDate;
+                tempStore.StoreSize = store.StoreSize;
+                tempStore.StoreType = store.StoreType;
+                tempStore.Concessions = store.Concessions;
+                tempStore.Department = store.Department;
+
+                return store;
+            }
+
+            return store;
+        }
         }
     }
-}
+

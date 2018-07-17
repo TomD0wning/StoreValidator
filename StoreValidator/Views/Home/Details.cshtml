@@ -3,15 +3,17 @@
 
 @{
     <h1>@Model</h1>
-    ViewBag.Title = @Model.Name;
+    ViewBag.Title = @Model;
 
-
+    <div>@Model.Name</div>
     <div>@Model.Desc</div>
     <div>@Model.Address</div>
     <div>@Model.PostCode</div>
     <div>@Model.StoreSize</div>
     <div>@Model.StoreType</div>
     <div>@Model.OpenDate</div>
+    <div>@Model.Concessions</div>
+    <div>@Model.Department</div>
 
     <a asp-action="Index" asp-controller="Home">Home</a>
 

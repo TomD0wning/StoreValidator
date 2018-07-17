@@ -23,13 +23,15 @@ namespace StoreValidator.ViewModels
         [DataType(DataType.Text)]
         public string PostCode { get; set; }
 
-        [DataType(DataType.Text)]
         public StoreType StoreType { get; set; }
-
 
         public long StoreSize { get; set; }
 
         [DataType(DataType.Date)]
         public string OpenDate { get; set; }
+
+        public bool Concessions { get; set; }
+
+        public Departments Department { get; set; }
     }
 }
