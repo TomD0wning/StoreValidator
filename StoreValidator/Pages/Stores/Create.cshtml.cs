@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,24 +9,24 @@ using StoreValidator.Services;
 
 namespace StoreValidator.Pages.Stores
 {
-    public class EditModel : PageModel
+    public class CreateModel : PageModel
     {
         [BindProperty]
         public Store Store { get; set; }
 
         private IStoreData _storeData;
 
-        public EditModel(IStoreData storeData)
+        public CreateModel(IStoreData storeData)
         {
             _storeData = storeData;
         }
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet()
         {
-            Store = _storeData.Get(id);
-            if (Store == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+            //Store = _storeData.Get(id);
+            //if (Store == null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
             return Page();
         }
 
@@ -34,11 +34,11 @@ namespace StoreValidator.Pages.Stores
         {
             if (ModelState.IsValid)
             {
-                _storeData.Update(Store);
+                _storeData.Add(Store);
                 return RedirectToAction("Details", "Home", new { Id = Store.Id });
             }
             return Page();
-            
+
         }
     }
 }

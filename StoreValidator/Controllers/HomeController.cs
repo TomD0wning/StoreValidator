@@ -21,16 +21,18 @@ namespace StoreValidator.Controllers
 
             //Instantiate a new instance of store from the HomeView model
             var model = new HomeIndexViewModel();
-                            
+
 
             model.Stores = _storeData.GetAll();
 
             return View(model);
         }
 
-        public IActionResult Details(int id){
+        public IActionResult Details(int id)
+        {
             var model = _storeData.Get(id);
-            if (model == null){
+            if (model == null)
+            {
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -45,8 +47,10 @@ namespace StoreValidator.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public IActionResult Create(StoreEditModel model){
-            if(ModelState.IsValid){
+        public IActionResult Create(StoreEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
                 var newStore = new Store();
 
                 newStore.Name = model.Name;
@@ -62,7 +66,9 @@ namespace StoreValidator.Controllers
                 newStore = _storeData.Add(newStore);
 
                 return RedirectToAction(nameof(Details), new { id = newStore.Id });
-            }else{
+            }
+            else
+            {
                 return View();
             }
 

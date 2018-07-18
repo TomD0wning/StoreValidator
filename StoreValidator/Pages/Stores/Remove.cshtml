@@ -1,0 +1,15 @@
+﻿@page "{id}"
+@using StoreValidator.Pages.Stores
+@model RemoveModel
+
+
+<form method="post">
+
+    <div>Confirm deletion of @Model.Id</div>
+
+    <input type="submit" name="save" value="Save" />
+
+    <a asp-action="Index" asp-controller="Home">Back</a>
+
+
+</form>

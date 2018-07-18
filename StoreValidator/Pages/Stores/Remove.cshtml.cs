@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,14 +9,14 @@ using StoreValidator.Services;
 
 namespace StoreValidator.Pages.Stores
 {
-    public class EditModel : PageModel
+    public class RemoveModel : PageModel
     {
         [BindProperty]
         public Store Store { get; set; }
 
         private IStoreData _storeData;
 
-        public EditModel(IStoreData storeData)
+        public RemoveModel(IStoreData storeData)
         {
             _storeData = storeData;
         }
@@ -34,11 +34,11 @@ namespace StoreValidator.Pages.Stores
         {
             if (ModelState.IsValid)
             {
-                _storeData.Update(Store);
-                return RedirectToAction("Details", "Home", new { Id = Store.Id });
+                _storeData.Remove(Store);
+                return RedirectToAction("Index", "Home");
             }
             return Page();
-            
+
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -11,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using StoreValidator.Data;
 using StoreValidator.Services;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using StoreValidator.Models;
 
 namespace StoreValidator
 {
@@ -29,11 +28,13 @@ namespace StoreValidator
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationDocker")));
+            services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationLocal")));
             //services.AddSingleton<IStoreData, InMemStore>(); //For using in mem data **DEV ONLY**
             services.AddScoped<IStoreData, SqlStoreData>();
+           
 
-            services.AddMvc();
+            services.AddMvc().AddFluentValidation();
+            services.AddTransient<IValidator<Store>, StoreDataValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +67,7 @@ namespace StoreValidator
             private void RouteConfig(IRouteBuilder routeBuilder)
             {
                     routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+
             }
         }
     

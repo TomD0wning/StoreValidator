@@ -1,0 +1,56 @@
+﻿@page "{id}"
+@using StoreValidator.Pages.Stores
+@model CreateModel
+
+<h1>Edit @Model.Store.Name</h1>
+<form method="post">
+
+    <input type="hidden" asp-for="Store.Id" />
+    <div>
+        <label asp-for="Store.Name"></label>
+        <input asp-for="Store.Name" />
+        <span asp-validation-for="Store.Name"></span>
+    </div>
+    <div>
+        <label asp-for="Store.Address"></label>
+        <input asp-for="Store.Address" />
+        <span asp-validation-for="Store.Address"></span>
+    </div>
+    <div>
+        <label asp-for="Store.PostCode"></label>
+        <input asp-for="Store.PostCode" />
+        <span asp-validation-for="Store.PostCode"></span>
+    </div>
+    <div>
+        <label asp-for="Store.StoreSize"></label>
+        <input asp-for="Store.StoreSize" />
+        <span asp-validation-for="Store.StoreSize"></span>
+    </div>
+    <div>
+        <label asp-for="Store.OpenDate"></label>
+        <input asp-for="Store.OpenDate" />
+        <span asp-validation-for="Store.OpenDate"></span>
+    </div>
+    <div>
+        <label asp-for="Store.Concessions"></label>
+        <input asp-for="Store.Concessions" />
+        <span asp-validation-for="Store.Concessions"></span>
+    </div>
+    <div>
+        <label asp-for="Store.StoreType"></label>
+        <select asp-for="Store.StoreType" asp-items="@Html.GetEnumSelectList(typeof(StoreType))"></select>
+        <span asp-validation-for="Store.StoreType"></span>
+    </div>
+    <div>
+        <label asp-for="Store.Department"></label>
+        <select asp-for="Store.Department" asp-items="@Html.GetEnumSelectList(typeof(Departments))"></select>
+        <span asp-validation-for="Store.Department"></span>
+    </div>
+
+
+    <input type="submit" name="save" value="Save" />
+
+    <a asp-action="Index" asp-controller="Home">Back</a>
+
+
+</form>

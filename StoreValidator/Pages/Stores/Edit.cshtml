@@ -9,27 +9,32 @@
         <div>
             <label asp-for="Store.Name"></label>
             <input asp-for="Store.Name" />
+            <span asp-validation-for="Store.Name"></span>
         </div>
-        <span asp-validation-for="Store.Name"></span>
         <div>
             <label asp-for="Store.Address"></label>
             <input asp-for="Store.Address" />
+            <span asp-validation-for="Store.Address"></span>
         </div>
         <div>
             <label asp-for="Store.PostCode"></label>
             <input asp-for="Store.PostCode" />
+            <span asp-validation-for="Store.PostCode"></span>
         </div>
         <div>
             <label asp-for="Store.StoreSize"></label>
             <input asp-for="Store.StoreSize" />
+            <span asp-validation-for="Store.StoreSize"></span>
         </div>
         <div>
             <label asp-for="Store.OpenDate"></label>
             <input asp-for="Store.OpenDate" />
+            <span asp-validation-for="Store.OpenDate"></span>
         </div>
         <div>
             <label asp-for="Store.Concessions"></label>
             <input asp-for="Store.Concessions" />
+            <span asp-validation-for="Store.Concessions"></span>
         </div>
         <div>
             <label asp-for="Store.StoreType"></label>
@@ -45,7 +50,7 @@
 
         <input type="submit" name="save" value="Save" />
 
-        <h4>@Html.ActionLink("Back", "Index")</h4>
+        <a asp-action="Index" asp-controller="Home">Back</a>
 
 
     </form>
