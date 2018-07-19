@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoreValidator.Data;
 
 namespace StoreValidator.Migrations
 {
     [DbContext(typeof(StoreValidatorDbContext))]
-    partial class StoreValidatorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180719171055_DockerUpdate")]
+    partial class DockerUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

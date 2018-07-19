@@ -46,7 +46,7 @@ namespace StoreValidator.Models
             //Stop processing rules when the first one fails.
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
-            RuleFor(s => s.Name).NotEmpty().Matches("(\\w)").MaximumLength(10).WithMessage("Store name is mandatory");
+            RuleFor(s => s.Name).NotEmpty().Matches("(\\w)").MaximumLength(10);
             RuleFor(s => s.Desc).MaximumLength(120).Matches("\\w");
             RuleFor(s => s.Address).Matches("\\w");
             RuleFor(s => s.PostCode).Matches(r).WithMessage("Input does not match the UK post code standard");
