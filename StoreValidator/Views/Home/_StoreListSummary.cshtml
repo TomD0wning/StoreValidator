@@ -2,9 +2,12 @@
 
 
 <section> 
-    <h3>@Model.Name</h3>
+    <h3>@Model.Name - @Model.Id</h3>
     <div>
-        StoreType: @Model.StoreType
+        Store Type: @Model.StoreType
+    </div>
+    <div>
+        Address: @Model.Address
     </div>
     <div>
         <a asp-action="Details" asp-route-id="@Model.Id">More</a>

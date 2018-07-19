@@ -5,15 +5,19 @@
     <h1>@Model</h1>
     ViewBag.Title = @Model;
 
-    <div>@Model.Name</div>
-    <div>@Model.Desc</div>
-    <div>@Model.Address</div>
-    <div>@Model.PostCode</div>
-    <div>@Model.StoreSize</div>
-    <div>@Model.StoreType</div>
-    <div>@Model.OpenDate</div>
-    <div>@Model.Concessions</div>
-    <div>@Model.Department</div>
+    <div class="row">
+        <div class="column" style="background-color:white;">
+            <p>ID: <i>@Model.Id</i></p>
+            <p>Description: <i>@Model.Desc</i></p>
+            <p>Address: <i>@Model.Address</i></p>
+            <p>PostCode:  <i>@Model.PostCode</i></p>
+            <p>Type: <i>@Model.StoreType</i></p>
+            <p>Department: <i>@Model.Department</i></p>
+            <p>Open Date: <i>@Model.OpenDate</i></p>
+            <p>Concessions: <i>@Model.Concessions</i></p>
+            <p>Size:  <i>@Model.StoreSize</i></p>
+        </div>
+    </div>
 
     <a asp-action="Index" asp-controller="Home">Home</a>
 

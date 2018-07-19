@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using StoreValidator.Models;
+using Microsoft.Extensions.Logging;
 
 namespace StoreValidator
 {
@@ -29,7 +30,7 @@ namespace StoreValidator
         {
 
             services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationLocal")));
-            //services.AddSingleton<IStoreData, InMemStore>(); //For using in mem data **DEV ONLY**
+            //services.AddSingleton<IStoreData, InMemStore>(); //For using in mem data
             services.AddScoped<IStoreData, SqlStoreData>();
            
 
@@ -48,18 +49,15 @@ namespace StoreValidator
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+        
             app.UseStaticFiles();
 
             app.UseMvc(RouteConfig);
 
             app.Run(async (context) =>
             {
-
                 context.Response.ContentType = "text/plain";
                 await context.Response.WriteAsync($"Page not Found");
-
-
             });
         }
 

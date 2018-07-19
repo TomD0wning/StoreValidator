@@ -32,7 +32,7 @@ namespace StoreValidator
 
         public IEnumerable<Store> GetAll()
         {
-            return _context.Stores.OrderBy(s => s.Name);
+             return _context.Stores.OrderBy(s => s.Name);
         }
 
         public Store Remove(Store store)

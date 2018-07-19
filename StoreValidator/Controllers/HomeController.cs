@@ -1,19 +1,23 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using StoreValidator.Models;
 using StoreValidator.Services;
 using StoreValidator.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace StoreValidator.Controllers
 {
     public class HomeController : Controller
     {
         private IStoreData _storeData;
+        private ILogger<HomeController> _logger;
 
-        public HomeController(IStoreData storeData)
+        public HomeController(IStoreData storeData, ILogger<HomeController> logger)
         {
             _storeData = storeData;
-
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -21,8 +25,6 @@ namespace StoreValidator.Controllers
 
             //Instantiate a new instance of store from the HomeView model
             var model = new HomeIndexViewModel();
-
-
             model.Stores = _storeData.GetAll();
 
             return View(model);
@@ -44,24 +46,28 @@ namespace StoreValidator.Controllers
             return View();
         }
 
-
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Create(StoreEditModel model)
         {
+            var newStore = new Store();
+
+            newStore.Name = model.Name;
+            newStore.Address = model.Address;
+            newStore.Desc = model.Desc;
+            newStore.PostCode = model.PostCode;
+            newStore.StoreSize = model.StoreSize;
+            newStore.StoreType = model.StoreType;
+            newStore.OpenDate = model.OpenDate;
+            newStore.Concessions = model.Concessions;
+            newStore.Department = model.Department;
+
+            var validator = new StoreDataValidator();
+            var results = validator.Validate(newStore);
+            results.AddToModelState(ModelState, null);
+
             if (ModelState.IsValid)
             {
-                var newStore = new Store();
-
-                newStore.Name = model.Name;
-                newStore.Address = model.Address;
-                newStore.Desc = model.Desc;
-                newStore.PostCode = model.PostCode;
-                newStore.StoreSize = model.StoreSize;
-                newStore.StoreType = model.StoreType;
-                newStore.OpenDate = model.OpenDate;
-                newStore.Concessions = model.Concessions;
-                newStore.Department = model.Department;
 
                 newStore = _storeData.Add(newStore);
 
@@ -69,9 +75,13 @@ namespace StoreValidator.Controllers
             }
             else
             {
+                foreach (var Modelvalue in ModelState.Values)
+                    {
+                        foreach(var e in Modelvalue.Errors)
+                        _logger.LogDebug(e.ErrorMessage);
+                    }
                 return View();
             }
-
         }
 
         public IActionResult Error()

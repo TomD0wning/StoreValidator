@@ -40,18 +40,23 @@ namespace StoreValidator.Models
     {
         public StoreDataValidator()
         {
-            string UkPostCodeRegex = "^(GIR 0AA)|[a-z-[qvx]](?:\\d|\\d{2}|[a-z-[qvx]]\\d|[a-z-[qvx]]\\d[a-z-[qvx]]|[a-z-[qvx]]\\d{2})(?:\\s?\\d[a-z-[qvx]]{2})?$";
-            Regex r = new Regex(UkPostCodeRegex);
-           
+            Regex r = new Regex("^([Gg][Ii][Rr] 0[Aa]{2}|([A-Za-z][0-9]{1,2}|[A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2}|[A-Za-z][0-9][A-Za-z]|[A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]) ?[0-9][A-Za-z]{2})$");
 
-            RuleFor(s => s.Name).NotEmpty().Matches("(\\w)").MaximumLength(10);
+
+            //Stop processing rules when the first one fails.
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+
+            RuleFor(s => s.Name).NotEmpty().Matches("(\\w)").MaximumLength(10).WithMessage("Store name is mandatory");
             RuleFor(s => s.Desc).MaximumLength(120).Matches("\\w");
             RuleFor(s => s.Address).Matches("\\w");
-            RuleFor(s => s.PostCode).Matches(r).WithMessage("Input does not match the UK post code Standard");
+            RuleFor(s => s.PostCode).Matches(r).WithMessage("Input does not match the UK post code standard");
             RuleFor(s => s.StoreSize).GreaterThanOrEqualTo(0).WithMessage("Size must be greater than or equal to 0");
             RuleFor(s => s.StoreType).IsInEnum();
-            //RuleFor(s=> s.Concessions)
+            //RuleFor(s => s.Concessions).
             RuleFor(s => s.Department).IsInEnum();
+
+
+            //TODO - Add some custom rules around store size and the corresponding store type.
         }
     }
 }

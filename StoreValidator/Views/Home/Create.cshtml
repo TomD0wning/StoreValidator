@@ -3,9 +3,6 @@
 @{
     ViewBag.Title = "Create";
 
-
-<h1>@Model</h1>
-
 <form method="post">
 
     <div>
@@ -43,9 +40,9 @@
         <input asp-for="OpenDate" />
         <span asp-validation-for="OpenDate"></span>
     </div>
-        <div>
+    <div>
         <label asp-for="Concessions"></label>
-        <select asp-for="Concessions"></select>
+        <input type="checkbox" asp-for="Concessions">
         <span asp-validation-for="Concessions"></span>
     </div>
 
@@ -55,7 +52,7 @@
         <span asp-validation-for="Department"></span>
     </div>
 
-        <div>
+    <div>
         <label asp-for="StoreType"></label>
         <select asp-for="StoreType" asp-items="@Html.GetEnumSelectList(typeof(StoreType))"></select>
         <span asp-validation-for="StoreType"></span>
