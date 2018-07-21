@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
@@ -40,9 +41,17 @@ namespace StoreValidator.Models
     {
         public StoreDataValidator()
         {
+            var storeSizeList = new List<KeyValuePair<StoreType, long>>()
+            {
+                new KeyValuePair<StoreType, long>(StoreType.None,0),
+                new KeyValuePair<StoreType, long>(StoreType.Supermarket,50000),
+                new KeyValuePair<StoreType, long>(StoreType.Convienence,25000),
+                new KeyValuePair<StoreType, long>(StoreType.Micro,15000),
+                new KeyValuePair<StoreType, long>(StoreType.PFS,10000)
+            };
+
+
             Regex r = new Regex("^([Gg][Ii][Rr] 0[Aa]{2}|([A-Za-z][0-9]{1,2}|[A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2}|[A-Za-z][0-9][A-Za-z]|[A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]) ?[0-9][A-Za-z]{2})$");
-
-
             //Stop processing rules when the first one fails.
             CascadeMode = CascadeMode.StopOnFirstFailure;
 
@@ -50,13 +59,18 @@ namespace StoreValidator.Models
             RuleFor(s => s.Desc).MaximumLength(120).Matches("\\w");
             RuleFor(s => s.Address).Matches("\\w");
             RuleFor(s => s.PostCode).Matches(r).WithMessage("Input does not match the UK post code standard");
-            RuleFor(s => s.StoreSize).GreaterThanOrEqualTo(0).WithMessage("Size must be greater than or equal to 0");
             RuleFor(s => s.StoreType).IsInEnum();
-            //RuleFor(s => s.Concessions).
+            RuleFor(s => s.StoreSize).GreaterThanOrEqualTo(0).WithMessage("Size must be greater than or equal to 0");
             RuleFor(s => s.Department).IsInEnum();
 
 
             //TODO - Add some custom rules around store size and the corresponding store type.
+
+        //None:0
+        //Supermarket: >= 25000sqft
+        //Convienence: >= 15000sqft < 25000sqft
+        //Micro: >= 5000sqft < 15000sqft
+        //PFS: < 5000sqft
         }
     }
 }

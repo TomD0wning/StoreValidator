@@ -29,7 +29,7 @@ namespace StoreValidator
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationDocker")));
+            services.AddDbContext<StoreValidatorDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("StoreValidationLocal")));
             //services.AddSingleton<IStoreData, InMemStore>(); //For using in mem data
             services.AddScoped<IStoreData, SqlStoreData>();
            

@@ -3,8 +3,10 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<header>
+    <h1>@Model</h1>
+</header>
 
-<h1>@Model</h1>
 
 @foreach (var store in Model.Stores)
 {

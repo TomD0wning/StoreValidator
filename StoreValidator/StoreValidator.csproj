@@ -22,7 +22,4 @@
   <ItemGroup>
     <Compile Remove="Views\Home\Create.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-  </ItemGroup>
 </Project>

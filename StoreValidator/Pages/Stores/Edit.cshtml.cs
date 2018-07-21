@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentValidation.AspNetCore;
+﻿using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -19,7 +15,7 @@ namespace StoreValidator.Pages.Stores
         private IStoreData _storeData;
         private ILogger _logger;
 
-        public EditModel(IStoreData storeData, ILogger logger)
+        public EditModel(IStoreData storeData, ILogger<EditModel> logger)
         {
             _storeData = storeData;
             _logger = logger;

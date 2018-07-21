@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -18,7 +14,7 @@ namespace StoreValidator.Pages.Stores
         private IStoreData _storeData;
         private ILogger _logger;
 
-        public RemoveModel(IStoreData storeData, ILogger logger)
+        public RemoveModel(IStoreData storeData, ILogger<RemoveModel> logger)
         {
             _storeData = storeData;
             _logger = logger;
@@ -35,8 +31,9 @@ namespace StoreValidator.Pages.Stores
 
         public IActionResult OnPost()
         {
+                _logger.LogDebug("Delete operation triggered");
                 _storeData.Remove(Store);
-                 _logger.LogDebug(Store.Id + " " + Store.Name + "Removed");
+                _logger.LogDebug("{0} : {1} Removed", Store.Id,Store.Name);
                 return RedirectToAction("Index", "Home");
         }
     }
