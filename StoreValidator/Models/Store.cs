@@ -19,16 +19,21 @@ namespace StoreValidator.Models
         [MaxLength(120)]
         public string Desc { get; set; }
 
+        [Display(Name="Address")]
         [DataType(DataType.Text)]
         public string Address { get; set; }
 
+        [Display(Name="Post code")]
         [DataType(DataType.Text)]
         public string PostCode { get; set; }
 
+        [Display(Name="Store type")]
         public StoreType StoreType { get; set; }
-        
+
+        [Display(Name="Store size")]
         public long StoreSize { get; set; }
 
+        [Display(Name="Open date")]
         [DataType(DataType.Date)]
         public string OpenDate { get; set; }
 

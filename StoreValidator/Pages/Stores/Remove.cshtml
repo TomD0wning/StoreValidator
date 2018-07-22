@@ -2,11 +2,15 @@
 @using StoreValidator.Pages.Stores
 @model RemoveModel
 
+@{
+ViewBag.Title = "Remove store";
 
 <form method="post">
 
-    <div>Confirm deletion of @Model.Store.Name</div>  
-
+    <header>
+    <h2>Confirm deletion of @Model.Store.Name</h2>  
+    </header>
+    <main>
     <div class="row">
         <div class="column" style="background-color:white;">
             <p>ID: <i>@Model.Store.Id</i></p>
@@ -20,11 +24,12 @@
             <p>Size:  <i>@Model.Store.StoreSize</i></p>
         </div>
     </div>
+    </main>
 
-
-    <input type="submit" name="save" value="Confirm" />
-
-    <a asp-action="Index" asp-controller="Home">Back</a>
-
-
+        <div>
+        <input type="submit" name="save" value="Confirm" />
+        <a asp-action="Index" asp-controller="Home">Back</a>
+        </div>
 </form>
+
+}

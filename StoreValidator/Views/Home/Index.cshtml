@@ -1,20 +1,23 @@
 ﻿@model HomeIndexViewModel
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Pages";
 }
 <header>
-    <h1>@Model</h1>
+    <h2>Store Validator</h2>
+  <ul>
+  <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+  <li><a asp-action="Create" asp-controller="Home">Add Store</a></li>      
+  <li><a asp-action="About" asp-controller="Home">About</a></li>
+</ul>
 </header>
-
-
+<body>
 @foreach (var store in Model.Stores)
 {
     @Html.Partial("_StoreListSummary", store)
-
 }
-
-<div>
+ <div>
 <a asp-action="Create">Add Store</a>
 </div>
+</body>
 

@@ -2,7 +2,20 @@
 @using StoreValidator.Pages.Stores
 @model EditModel
 
-<h1>Edit @Model.Store.Name</h1>
+@{
+ViewBag.Title="Edit";
+
+<header>
+<h2>Edit @Model.Store.Name</h2>
+  <ul>
+  <li><a asp-action="Index" asp-controller="Home">Home</a></li>    
+  <li><a asp-action="About" asp-controller="Home">About</a></li>
+</ul>
+</header>
+
+<body>
+
+    <main>
     <form method="post">
 
         <input type="hidden" asp-for="Store.Id"/>
@@ -45,12 +58,15 @@
             <label asp-for="Store.Department"></label>
             <select asp-for="Store.Department" asp-items="@Html.GetEnumSelectList(typeof(Departments))"></select>
             <span asp-validation-for="Store.Department"></span>
-        </div>
-        
-
-        <input type="submit" name="save" value="Save" />
-
-        <a asp-action="Index" asp-controller="Home">Back</a>
-
+        </div>  
 
     </form>
+    </main>
+
+    <div>
+        <input type="submit" name="save" value="Save" />
+        <a asp-action="Index" asp-controller="Home">Back</a>
+    </div>
+</body>
+
+}

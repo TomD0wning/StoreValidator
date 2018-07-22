@@ -3,8 +3,17 @@
 @{
     ViewBag.Title = "Create";
 
-<form method="post">
+<header>
+    <h2>Add Store</h2>
+  <ul>
+  <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+  <li><a asp-action="Create" asp-controller="Home">Add Store</a></li>      
+  <li><a asp-action="About" asp-controller="Home">About</a></li>
+</ul>
+</header>   
 
+<form method="post">
+<main>
     <div>
         <label asp-for="Name"></label>
         <input asp-for="Name" />
@@ -58,10 +67,9 @@
         <span asp-validation-for="StoreType"></span>
     </div>
 
-    <input type="submit" name="save" value="Save" />
-
-    <a asp-action="Index" asp-controller="Home">Back</a>
-
-</form> 
-
+     <div> 
+        <input type="submit" name="save" value="Save" />
+       </div>
+    </main>
+    </form> 
     }

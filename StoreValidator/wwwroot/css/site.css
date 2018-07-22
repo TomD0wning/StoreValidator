@@ -1,32 +1,137 @@
-﻿.header {
-    background-color: crimson;
-    padding: 20px;
-    text-align: center;
-}
+﻿        html, body
+    {
+            padding:0;
+            margin:0;
+            height:80%;
+    }
+    #page
+    {
+            min-height:100%;
+            position:relative;
+            height:100%;
+    }
+    header
+    {
+            background-color:#1E90FF;
+            min-height:100px;
+            width:100%;
+            position:relative;
+    }
 
-.h1 {
-    background-color: crimson;
-    padding: 20px;
-    text-align: center;
-}
+    header h2
+    {
+            text-align:center;
+            font-size:44px;
+            color: white;
+            left:0px;
+            top:0px;
+            font-weight:bold;
+            font-family:Veranda;
+            float:left;
+            margin-top:20px;
+            margin-left:20px;
+            text-decoration:none;
+    }
+    
+    }
+    main
+    {
+            width:1300px;
+            padding:30px;
+            padding-left:0; 
+            margin-left:;
+            margin-right:5px;
+            background-color:white;
+            min-height:50%;
+            height:auto;
+            height:50%;
+            margin:0 auto -50px;
+            vertical-align: middle;
+    }
 
-html,body{margin:0;padding:0}
-body{font: 100% arial,sans-serif;text-align:center}
-p{margin:0 10px 10px}
-a{padding:5px; text-decoration:underline; color:deepskyblue;}
-div#header{background-color:#F3F2ED;}
-div#header h1{height:80px;line-height:80px;margin:0;padding-left:10px;}
-div#container{text-align:left}
-div#content p{line-height:1.4}
-div#navigation{background:#F6F0E0;}
-div#navigation ul{margin:15px 0; padding:0; list-style-type:none;}
-div#navigation li{margin-bottom:5px;}
-div#extra{background:#CCC8B3;}
-div#footer{background:#BFBD93;}
-div#footer p{margin:0;padding:5px 10px}
-div#container{width:700px;margin:0 auto}
-div#wrapper{float:left;width:100%}
-div#content{margin: 0 150px}
-div#navigation{float:left;width:150px;margin-left:-700px}
-div#extra{float:left;width:150px;margin-left:-150px}
-div#footer{clear:left;width:100%}
+    main div {
+            padding: 20px;
+
+    }
+
+    main div label
+    {
+            display: inline-block;
+            float: left;
+            clear: left;
+            width: 100px;
+            text-align: left;
+    }
+
+    main div input 
+    {
+            float: left;
+            text-align: left;
+  
+    }
+
+    footer
+    {
+            position:fixed;
+            width:100%;
+            bottom:0;
+            height:35px;
+            background-color: #1E90FF;
+            color: white;
+    }
+    header img
+    {
+            float:left;
+            display:inline;
+    }
+    
+
+    
+    a, a:visited, a:active
+    {
+            
+            color;
+            text-decoration: none;
+    }
+
+    a:hover
+    {
+            color: #1E90FF;
+            text-decoration: underline;
+    }
+
+
+    nav a:hover
+    {
+            background-color:#333;
+    }
+
+
+    ul 
+    {
+            position: fixed;    
+            list-style-type: none;
+            margin-top: 75px;
+            overflow: hidden;
+            background-color: #1E90F;
+    }
+
+    li 
+    {
+            float: left;
+    }
+
+    li a 
+    {
+            display: block;
+            color: white;
+            text-align: left;
+            padding: 0px 15px;
+            text-decoration: none;
+    }
+
+    li a:hover 
+    {
+            background-color: white;
+            padding-bottom: 10px;
+    }

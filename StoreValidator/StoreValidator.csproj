@@ -22,4 +22,7 @@
   <ItemGroup>
     <Compile Remove="Views\Home\Create.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Home\_linkHeader.cshtml" />
+  </ItemGroup>
 </Project>
