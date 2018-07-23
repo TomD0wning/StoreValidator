@@ -39,7 +39,7 @@ namespace StoreValidator.Models
 
         public bool Concessions { get; set; }
 
-        public Departments Department { get; set; }
+        public List<StoreDepartment> Departments { get; set; }
         
     }
     public class StoreDataValidator : AbstractValidator<Store>
@@ -66,7 +66,7 @@ namespace StoreValidator.Models
             RuleFor(s => s.PostCode).Matches(r).WithMessage("Input does not match the UK post code standard");
             RuleFor(s => s.StoreType).IsInEnum();
             RuleFor(s => s.StoreSize).GreaterThanOrEqualTo(0).WithMessage("Size must be greater than or equal to 0");
-            RuleFor(s => s.Department).IsInEnum();
+            //RuleFor(s => s.Department).IsInEnum();
 
 
             //TODO - Add some custom rules around store size and the corresponding store type.

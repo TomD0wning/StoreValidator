@@ -1,13 +1,20 @@
 ﻿using System;
 namespace StoreValidator.Models
 {
-    public enum Departments
+    public enum Department
     {
         None,
         Bakery,
         Butcher,
         Checkouts,
         FishMonger,
-        Fromagerie
+        Fromagerie,
+        Pharmacy,
+        HealthAndBeauty,
+        Ambient,
+        Chilled,
+        Frozen,
+        GM
+        
     }
 }

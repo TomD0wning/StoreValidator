@@ -65,7 +65,7 @@ namespace StoreValidator.Controllers
             newStore.StoreType = model.StoreType;
             newStore.OpenDate = model.OpenDate;
             newStore.Concessions = model.Concessions;
-            newStore.Department = model.Department;
+            newStore.Departments = model.Departments;
 
             var validator = new StoreDataValidator();
             var results = validator.Validate(newStore);

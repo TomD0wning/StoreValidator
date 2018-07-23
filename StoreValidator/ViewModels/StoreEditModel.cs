@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using StoreValidator.Models;
 
@@ -32,6 +33,6 @@ namespace StoreValidator.ViewModels
 
         public bool Concessions { get; set; }
 
-        public Departments Department { get; set; }
+        public List<StoreDepartment> Departments { get; set; }
     }
 }

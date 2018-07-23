@@ -63,7 +63,7 @@ namespace StoreValidator.Services
                 tempStore.StoreSize = store.StoreSize;
                 tempStore.StoreType = store.StoreType;
                 tempStore.Concessions = store.Concessions;
-                tempStore.Department = store.Department;
+                tempStore.Departments = store.Departments;
 
                 return store;
             }

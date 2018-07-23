@@ -21,11 +21,6 @@ namespace StoreValidator.Pages.Stores
         }
         public IActionResult OnGet()
         {
-            //Store = _storeData.Get(id);
-            //if (Store == null)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
             return Page();
         }
 
