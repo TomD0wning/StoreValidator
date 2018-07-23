@@ -1,137 +1,122 @@
-﻿        html, body
-    {
-            padding:0;
-            margin:0;
-            height:80%;
-    }
-    #page
-    {
-            min-height:100%;
-            position:relative;
-            height:100%;
-    }
-    header
-    {
-            background-color:#1E90FF;
-            min-height:100px;
-            width:100%;
-            position:relative;
+﻿html, body {
+    padding: 0;
+    margin: 0;
+    height: 80%;
+}
+
+#page {
+    min-height: 100%;
+    position: relative;
+    height: 100%;
+}
+
+header {
+    background-color: #1E90FF;
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+}
+
+    header h2 {
+        text-align: center;
+        font-size: 44px;
+        color: white;
+        left: 0px;
+        top: 0px;
+        font-weight: bold;
+        font-family: Veranda;
+        float: left;
+        margin-top: 20px;
+        margin-left: 20px;
+        text-decoration: none;
     }
 
-    header h2
-    {
-            text-align:center;
-            font-size:44px;
-            color: white;
-            left:0px;
-            top:0px;
-            font-weight:bold;
-            font-family:Veranda;
-            float:left;
-            margin-top:20px;
-            margin-left:20px;
-            text-decoration:none;
-    }
-    
-    }
-    main
-    {
-            width:1300px;
-            padding:30px;
-            padding-left:0; 
-            margin-left:;
-            margin-right:5px;
-            background-color:white;
-            min-height:50%;
-            height:auto;
-            height:50%;
-            margin:0 auto -50px;
-            vertical-align: middle;
-    }
+
+
+main {
+    width: 1300px;
+    padding: 30px;
+    padding-left: 0;
+    margin-left:0;
+    margin-right: 5px;
+    background-color: white;
+    min-height: 50%;
+    height: auto;
+    height: 50%;
+    margin: 0 auto -50px;
+    vertical-align: middle;
+}
 
     main div {
-            padding: 20px;
-
+        padding: 20px;
     }
 
-    main div label
-    {
+        main div label {
             display: inline-block;
             float: left;
             clear: left;
             width: 100px;
             text-align: left;
-    }
+        }
 
-    main div input 
-    {
+        main div input {
             float: left;
             text-align: left;
-  
-    }
+        }
 
-    footer
-    {
-            position:fixed;
-            width:100%;
-            bottom:0;
-            height:35px;
-            background-color: #1E90FF;
-            color: white;
-    }
-    header img
-    {
-            float:left;
-            display:inline;
-    }
-    
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 35px;
+    background-color: #1E90FF;
+    color: white;
+}
 
-    
-    a, a:visited, a:active
-    {
-            
-            color;
-            text-decoration: none;
-    }
+header img {
+    float: left;
+    display: inline;
+}
 
-    a:hover
-    {
-            color: #1E90FF;
-            text-decoration: underline;
+
+
+a, a:visited, a:active {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #1E90FF;
+        text-decoration: underline;
     }
 
 
-    nav a:hover
-    {
-            background-color:#333;
+nav a:hover {
+    background-color: #333;
+}
+
+
+ul {
+    position: fixed;
+    list-style-type: none;
+    margin-top: 75px;
+    overflow: hidden;
+    background-color: #1E90FF;
+}
+
+li {
+    float: left;
+}
+
+    li a {
+        display: block;
+        color: white;
+        text-align: left;
+        padding: 0px 15px;
+        text-decoration: none;
     }
 
-
-    ul 
-    {
-            position: fixed;    
-            list-style-type: none;
-            margin-top: 75px;
-            overflow: hidden;
-            background-color: #1E90F;
-    }
-
-    li 
-    {
-            float: left;
-    }
-
-    li a 
-    {
-            display: block;
-            color: white;
-            text-align: left;
-            padding: 0px 15px;
-            text-decoration: none;
-    }
-
-    li a:hover 
-    {
+        li a:hover {
             background-color: white;
             padding-bottom: 10px;
-    }
+        }
