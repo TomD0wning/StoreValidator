@@ -38,6 +38,7 @@ namespace StoreValidator
         public Store Remove(Store store)
         {
             _context.Stores.Remove(store);
+          
             _context.SaveChanges();
             return store;
         }
