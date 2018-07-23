@@ -30,6 +30,11 @@ namespace StoreValidator.Controllers
             return View(model);
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult Details(int id)
         {
             var model = _storeData.Get(id);

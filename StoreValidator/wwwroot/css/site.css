@@ -64,6 +64,10 @@ main {
             text-align: left;
         }
 
+        main div a {
+            color: black;
+        }
+
 footer {
     position: fixed;
     width: 100%;
@@ -78,10 +82,11 @@ header img {
     display: inline;
 }
 
+    
 
 
-a, a:visited, a:active {
-    color: aliceblue;
+ a:visited, a:active {
+    color: white;
     text-decoration: none;
 }
 
