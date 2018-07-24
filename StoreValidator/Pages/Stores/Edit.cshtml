@@ -55,9 +55,9 @@ ViewBag.Title="Edit";
             <span asp-validation-for="Store.StoreType"></span>
         </div>
         <div>
-            <label asp-for="Store.Departments"></label>
-            <select asp-for="Store.Departments" asp-items="@Html.GetEnumSelectList(typeof(Department))"></select>
-            <span asp-validation-for="Store.Departments"></span>
+            <label asp-for="Store.Department"></label>
+            <select asp-for="Store.Department" asp-items="@Html.GetEnumSelectList(typeof(Department))"></select>
+            <span asp-validation-for="Store.Department"></span>
         </div>  
 
     </form>

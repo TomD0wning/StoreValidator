@@ -13,9 +13,5 @@ namespace StoreValidator.Data
         }
 
         public DbSet<Store> Stores { get; set; }
-
-        public DbSet<StoreDepartment> StoreDepts { get; set; }
-
-
     }
 }

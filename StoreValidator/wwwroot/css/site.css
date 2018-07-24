@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     height: 80%;
+    background-color: #F6F6F6;
 }
 
 #page {
@@ -11,7 +12,7 @@
 }
 
 header {
-    background-color: #1E90FF;
+    background-color: #F06C00;
     min-height: 100px;
     width: 100%;
     position: relative;
@@ -24,35 +25,38 @@ header {
         left: 0px;
         top: 0px;
         font-weight: bold;
-        font-family: Veranda;
+        font-family: 'Mary Ann';
+        font: bold;
         float: left;
         margin-top: 20px;
         margin-left: 20px;
         text-decoration: none;
     }
 
-
-
 main {
     width: 1300px;
     padding: 30px;
     padding-left: 0;
-    margin-left:0;
+    margin-left: 0;
     margin-right: 5px;
-    background-color: white;
+    background-color: #F6F6F6;
+    color: black;
     min-height: 50%;
     height: auto;
     height: 50%;
     margin: 0 auto -50px;
     vertical-align: middle;
+    font-family: 'Mary Ann';
 }
 
     main div {
         padding: 20px;
+        
     }
 
         main div label {
             display: inline-block;
+           
             float: left;
             clear: left;
             width: 100px;
@@ -61,11 +65,13 @@ main {
 
         main div input {
             float: left;
+           
             text-align: left;
         }
 
         main div a {
             color: black;
+         
         }
 
 footer {
@@ -73,27 +79,20 @@ footer {
     width: 100%;
     bottom: 0;
     height: 35px;
-    background-color: #1E90FF;
+    background-color: #F06C00;
     color: white;
+    font-family: 'Mary Ann';
 }
 
-header img {
-    float: left;
-    display: inline;
-}
-
-    
-
-
- a:visited, a:active {
+ /*a:visited, a:active {
     color: white;
     text-decoration: none;
-}
+}*/
 
-    a:hover {
-        color: #1E90FF;
-        text-decoration: underline;
-    }
+a:hover {
+    color: #F06C00;
+    text-decoration: underline;
+}
 
 
 nav a:hover {
@@ -105,8 +104,9 @@ ul {
     position: fixed;
     list-style-type: none;
     margin-top: 75px;
+    font-family: 'Mary Ann';
     overflow: hidden;
-    background-color: #1E90FF;
+    background-color: #F06C00;
 }
 
 li {
@@ -123,5 +123,5 @@ li {
 
         li a:hover {
             background-color: white;
-            padding-bottom: 10px;
+            padding-bottom: 3px;
         }

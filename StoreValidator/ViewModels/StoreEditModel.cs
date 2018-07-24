@@ -33,6 +33,6 @@ namespace StoreValidator.ViewModels
 
         public bool Concessions { get; set; }
 
-        public List<StoreDepartment> Departments { get; set; }
+        public Department Departments { get; set; }
     }
 }
