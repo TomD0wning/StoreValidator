@@ -24,8 +24,10 @@ namespace StoreValidator.Controllers
         {
 
             //Instantiate a new instance of store from the HomeView model
-            var model = new HomeIndexViewModel();
-            model.Stores = _storeData.GetAll();
+            var model = new HomeIndexViewModel
+            {
+                Stores = _storeData.GetAll()
+            };
 
             return View(model);
         }
@@ -55,17 +57,18 @@ namespace StoreValidator.Controllers
         [AutoValidateAntiforgeryToken]
         public IActionResult Create(StoreEditModel model)
         {
-            var newStore = new Store();
-
-            newStore.Name = model.Name;
-            newStore.Address = model.Address;
-            newStore.Desc = model.Desc;
-            newStore.PostCode = model.PostCode;
-            newStore.StoreSize = model.StoreSize;
-            newStore.StoreType = model.StoreType;
-            newStore.OpenDate = model.OpenDate;
-            newStore.Concessions = model.Concessions;
-            newStore.Department = model.Departments;
+            var newStore = new Store
+            {
+                Name = model.Name,
+                Address = model.Address,
+                Desc = model.Desc,
+                PostCode = model.PostCode,
+                StoreSize = model.StoreSize,
+                StoreType = model.StoreType,
+                OpenDate = model.OpenDate,
+                Concessions = model.Concessions,
+                Department = model.Departments
+            };
 
             var validator = new StoreDataValidator();
             var results = validator.Validate(newStore);
